@@ -40,11 +40,17 @@
 		var url	= 'videos/sintel.mp4'
 	}else if( canPlayOgg ){
 		var url	= 'videos/sintel.ogv'
-	}else	alert('cant play mp4 or ogv')
+	}else {
+		alert('cant play mp4 or ogv')	
+	}
+	
 
 	// create the videoTexture
 	var videoTexture= new THREEx.VideoTexture(url)
 	var video	= videoTexture.video
+	video.setAttribute("webkit-playsinline", "webkit-playsinline")
+	video.setAttribute("playsinline", "playsinline")
+
 	updateFcts.push(function(delta, now){
 		videoTexture.update(delta, now)
 	})
